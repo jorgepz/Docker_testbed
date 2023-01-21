@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container: mtmiller/octave
     steps:
+      - uses: actions/checkout@v3
       - run: echo "Running 1.2.0"
       - run: octave --eval "hello"
 #      - uses: actions/checkout@v3
