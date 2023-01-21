@@ -8,4 +8,5 @@ jobs:
     container: mtmiller/octave
     steps:
       - run: echo "Running 1.2.0"
+      - run: octave --eval "hello"
 #      - uses: actions/checkout@v3
