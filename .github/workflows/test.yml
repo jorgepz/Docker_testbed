@@ -5,7 +5,8 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    #container: drizzt99/vonage:1.2.0
+    container: mtmiller/octave
     steps:
       - run: echo "Running 1.2.0"
+      - run: octave --eval "hello"
 #      - uses: actions/checkout@v3
