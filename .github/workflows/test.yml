@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "Running 1.2.0"
-      - run: octave --eval "hello"
+      - run: octave --eval "version"
 
   test2:
     runs-on: ubuntu-latest
@@ -17,4 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "Running 1.2.0"
-      - run: octave --eval "hello"
+      - run: octave --eval "version"
+
+  test3:
+    runs-on: ubuntu-latest
+    container: matpower/octave
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git clone https://github.com/ONSAS/ONSAS.m.git
+          cd ONSAS.m
+          ls
