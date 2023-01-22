@@ -38,4 +38,16 @@ jobs:
           git clone https://github.com/ONSAS/ONSAS.m.git
           cd ONSAS.m/test
           octave --eval "runTestProblems_local"
+  test5:
+    runs-on: ubuntu-latest
+    container: gnuoctave/octave:latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git clone https://github.com/ONSAS/ONSAS.m.git
+          cd ONSAS.m/test
+          octave --eval "runTestProblems_local"
+          octave --eval "version"
+
+
 
