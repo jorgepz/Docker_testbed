@@ -1,4 +1,4 @@
-name: ci
+name: octave_tests
 
 on: push 
 
@@ -8,16 +8,14 @@ jobs:
     container: mtmiller/octave
     steps:
       - uses: actions/checkout@v3
-      - run: echo "Running 1.2.0"
-      - run: octave --eval "version"
+      - run: octave --eval "run('HelloWorld/helloworld.m')" 
 
   test2:
     runs-on: ubuntu-latest
     container: matpower/octave
     steps:
       - uses: actions/checkout@v3
-      - run: echo "Running 1.2.0"
-      - run: octave --eval "version"
+      - run: octave --eval "run('HelloWorld/helloworld.m')" 
 
   test3:
     runs-on: ubuntu-latest
@@ -38,6 +36,7 @@ jobs:
           git clone https://github.com/ONSAS/ONSAS.m.git
           cd ONSAS.m/test
           octave --eval "runTestProblems_local"
+          octave --eval "version"
   test5:
     runs-on: ubuntu-latest
     container: gnuoctave/octave:latest
@@ -48,6 +47,3 @@ jobs:
           cd ONSAS.m/test
           octave --eval "runTestProblems_local"
           octave --eval "version"
-
-
-
