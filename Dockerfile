@@ -1,17 +1,31 @@
 FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
-	build-essential \
-	cmake	\
 	git \
-        octave
+    octave \
+	&& rm -rf /var/lib/apt/lists/*
+	# build-essential \
+	# cmake \
+	# \
+    # libopenblas-dev \
+	# liblapack-dev \
+	# libarpack2 \
+	# libarmadillo-dev
 
-COPY HelloWorld /HelloWorld
+# # HelloWorld tests
+# COPY HelloWorld /HelloWorld
+# WORKDIR /HelloWorld/
+# RUN g++ -o HelloWorld helloworld.cpp
+# CMD ["./HelloWorld"]
+# CMD ["octave --eval helloworld"]
 
-WORKDIR /HelloWorld/
 
-RUN g++ -o HelloWorld helloworld.cpp
+# # Armadillo test
+# COPY ArmadilloTest /ArmadilloTest
+# WORKDIR ../ArmadilloTest/
 
-CMD ["./HelloWorld"]
+# RUN g++ example.cpp -o example.lnx -O2 -larmadillo
+# CMD ["./example.lnx"]
+
 
 
